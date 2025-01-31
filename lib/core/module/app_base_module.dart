@@ -1,0 +1,3 @@
+mixin AppBaseModule {
+  void provideModule();
+}
