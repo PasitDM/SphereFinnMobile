@@ -1,7 +1,7 @@
- # 🌟 SphereFinMobile (New Kashjoy)
+ # 🌟 SphereFinMobile
 
-> **แอปจัดการสินเชื่อและการชำระเงิน** รองรับการ **ถอนเงินแบบ Cardless, ชำระเงินด้วย QR/Barcode, แสดงใบแจ้งหนี PDF** และ **ค้นหาร้านค้าผ่านแผนที่**  
-> พัฒนาโดย **Flutter** ด้วยแนวทาง **Clean Architecture** และ **State Management (flutter_bloc + Get_it)**
+> **A loan management and payment application** supporting **Cardless withdrawals, QR/Barcode payments, PDF billing, and shop location maps**.
+> Built with **Flutter**, following **Clean Architecture** and utilizing **State Management (flutter_bloc + Get_it)**.
 
 ---
 
@@ -18,45 +18,43 @@
 
 ## 🏆 **Project Overview**
 
-**SphereFinMobile** เป็นแอปพลิเคชันสำหรับ **จัดการสินเชื่อและการชำระเงิน** โดยเน้นความสะดวก ปลอดภัย และรองรับ **Multi-Flavors (mock, sit, prod)**  
+**SphereFinMobile** is a **loan management and payment application** designed for seamless transactions, high security, and support for **multi-environment configurations (mock, sit, prod)**.
 
 ### 🛠 **Technologies Used**
-- **Flutter (Dart)** – ใช้ **flutter_bloc (Cubit)** เป็น State Management
-- **Get_it** – ใช้ Dependency Injection
-- **Firebase** – รองรับ FCM และ Analytics
-- **Fastlane** – สำหรับ CI/CD อัตโมัติ
-- **Google Maps API** – สำหรับแสดงตำแหน่งร้านค้า
+- **Flutter (Dart)** – Uses **flutter_bloc (Cubit)** for State Management.
+- **Get_it** – Dependency Injection.
+- **Firebase** – Supports FCM and Analytics.
+- **Fastlane** – Automated CI/CD deployment.
+- **Google Maps API** – For shop location services.
+
 
 ---
 
 ## 🚀 **Key Features**
 
-✅ **ถอนเงินแบบ Cardless** – ถอนเงินจากบัญชีสินเชื่อโดยแอป  
-✅ **QR/Barcode Payment** – สแกน QR Code หรือ Barcode เพื่อชำระเงิน  
-✅ **PDF Billing** – ดาวน์โหลดและดูใบแจ้งหนีในรูปแบบ PDF  
-✅ **Shop Location Map** – ค้นหาร้านค้าโดยแสดงแผนที่  
-✅ **User Authentication** – รองรับระบบล็อกอินแบบปลอดภัย
+**Cardless Withdrawal** – Withdraw money directly from the loan account.  
+**QR/Barcode Payment** – Scan QR Codes or Barcodes for seamless payments.  
+**PDF Billing** – View and download loan statements in PDF format.  
+**Shop Location Map** – Locate shops using an interactive map.  
+**User Authentication** – Secure login system.  
 
 ---
 
 ## 📸 **Screenshots & UI Flow**
 
-เพื่อให้เข้าใจภาพรวมของแอปได้ชัดเจนขึ้น นี่คือภาพหน้าจอของแอปที่แสดงฟังก์ชันหลัก:
-
-<p align="center">
-  <img src="path/to/map_screen.png" width="250" />
-  <img src="path/to/home_screen.png" width="250" />
-  <img src="path/to/account_screen.png" width="250" />
-  <img src="path/to/transfer_screen.png" width="250" />
-</p>
-
-**Flow ของแอป:**
-1️⃣ เปิดแอป → 2️⃣ เข้าสู่ระบบ → 3️⃣ ดูข้อมูลสินเชื่อ → 4️⃣ ชำระเงิน → 5️⃣ ดาวน์โหลดใบเสร็จ  
+🏠 Dashboard & Account Overview
+<p align="left"> <img src="assets/images/mock_dashboard.png" width="250" /> </p>
+🔑 Authentication
+<p align="left"> <img src="assets/images/mock_auth.png" width="250" /> </p>
+💳 Payment
+<p align="left"> <img src="assets/images/mock_pay.png" width="250" /> </p>
+🔄 Withdrawal
+<p align="left"> <img src="assets/images/mock_withdraw.png" width="250" /> </p>
 
 ---
 ## 🏗️ Project Structure - SphereFinMobile
 
-แอปพลิเคชันนี้ใช้แนวทาง **Clean Architecture** และจัดโครงสร้างแอปเป็นดังนี้:
+This project follows **Clean Architecture**, with a well-organized folder structure:
 
 ```
 assets/
@@ -66,59 +64,59 @@ assets/
 ├── icons/
 ├── localizations/
 │   ├── th.json
-|
+
 lib/
 │
 ├── common/
-│   ├── components/             # UI components ทั่วไป
-│   ├── constants/              # ค่าคงที่ที่ใช้ทั่วแอป
-│   ├── dialog/                 # Dialog ที่ใช้ซ้ำ
-│   ├── fullpage/               # Full page popup
-│   ├── tools/                  # เครื่องมือช่วยเหลือ เช่น Formatter, Validator
+│   ├── components/             # Shared UI components
+│   ├── constants/              # Application-wide constants
+│   ├── dialog/                 # Reusable dialog components
+│   ├── fullpage/               # Full page popups
+│   ├── tools/                  # Utility tools like Formatter, Validator
 │
 ├── core/
 │   ├── api/
-│   │   ├── api_config.dart     # Mapping API config จาก env
-│   │   ├── api_service.dart    # Interceptor สำหรับ Dio
+│   │   ├── api_config.dart     # Maps API config from env
+│   │   ├── api_service.dart    # Dio Interceptor
 │   ├── configuration/
-│   │   ├── app_config.dart     # โหลด asset config_th.json หรือ API config_th
-│   │   ├── app_flavor.dart     # Mapping Flavor
-│   │   ├── placeholder_key.dart # Key สำหรับข้อความที่ต้องแทนค่า
-│   │   ├── storage_key.dart    # Key สำหรับ local storage
-│   │   ├── language_config.dart # Enum สำหรับภาษาที่รองรับ
+│   │   ├── app_config.dart     # Loads asset config_th.json or API config_th
+│   │   ├── app_flavor.dart     # Maps Flavor configurations
+│   │   ├── placeholder_key.dart # Keys for text placeholders
+│   │   ├── storage_key.dart    # Keys for local storage
+│   │   ├── language_config.dart # Enum for supported languages
 │   ├── localization/
-│   │   ├── app_localizations.dart # โหลด asset th.json หรือ API json
+│   │   ├── app_localizations.dart # Loads asset th.json or API json
 │   │   ├── model/
 │   │   │   ├── common_label.dart
 │   │   │   ├── home_label.dart
 │   ├── module/
-│   │   ├── app_base_module.dart # Abstract class สำหรับ data, domain layer
+│   │   ├── app_base_module.dart # Abstract class for data, domain layers
 │   ├── provider/
-│   │   ├── app_provider.dart    # รวม BlocProvider ของแต่ละ features
+│   │   ├── app_provider.dart    # Centralized BlocProvider for features
 │   ├── route/
-│   │   ├── app_route.dart       # Map key สำหรับ route name
+│   │   ├── app_route.dart       # Route name mapping
 │   ├── state/
-│   │   ├── app_cubit.dart       # Abstract Cubit ที่มี init(), clear()
-│   │   ├── app_state.dart       # Abstract stateful screen base
+│   │   ├── app_cubit.dart       # Abstract Cubit with init(), clear()
+│   │   ├── app_state.dart       # Abstract Stateful screen base
 │
 ├── data/
-│   ├── model/                   # JSON Object จาก API
+│   ├── model/                   # JSON Object representations from API
 │   ├── repository/
 │   │   ├── mock_ex_repository.dart # Mock API data
-│   │   ├── remote_ex_repository.dart # API จริงผ่าน Dio
+│   │   ├── remote_ex_repository.dart # Actual API calls via Dio
 │
 ├── domain/
 │   ├── repository/
-│   │   ├── ex_repository.dart   # Abstract class ของ API call
+│   │   ├── ex_repository.dart   # Abstract API repository interface
 │
 ├── delegate/
-│   ├── app_storage_mixin.dart   # Save/get storage
-│   ├── application_mixin.dart   # Global function เช่น showAlert
-│   ├── config_mixin.dart        # เรียก config_th.json แบบง่าย
-│   ├── localization_mixin.dart  # เรียกข้อความจาก th.json
+│   ├── app_storage_mixin.dart   # Storage handling mixin
+│   ├── application_mixin.dart   # Global functions like showAlert
+│   ├── config_mixin.dart        # Simplified access to config_th.json
+│   ├── localization_mixin.dart  # Simplified access to th.json
 │
 ├── di/
-│   ├── app_module.dart          # Register dependencies ใน Get_it
+│   ├── app_module.dart          # Registers dependencies in Get_it
 │
 ├── extensions/
 │   ├── date_extension.dart
@@ -126,16 +124,16 @@ lib/
 │   ├── number_extension.dart
 │
 ├── theme/
-│   ├── app_colors.dart          # Field สีของแอป
+│   ├── app_colors.dart          # App color definitions
 │   ├── app_textstyle.dart       # Text styles
 │   ├── app_theme.dart           # Base theme components
 │
 ├── features/
 │   ├── example/
 │   │   ├── config/
-│   │   │   ├── example_module.dart
-│   │   │   ├── example_provider.dart
-│   │   │   ├── example_route.dart
+│   │   │   ├── example_module.dart  # Dependency module
+│   │   │   ├── example_provider.dart # BlocProvider for the feature
+│   │   │   ├── example_route.dart   # Route mappings for the feature
 │   │   ├── data/
 │   │   │   ├── models/
 │   │   │   │   ├── example_model.dart
@@ -155,47 +153,40 @@ lib/
 
 ## 🏛️ **State Management & Architecture**
 
-แอปพลิเคชันนี้ใช้แนวทาง **Clean Architecture** และจัดโครงสร้างแอปเป็น 3 เลเยอร์หลัก:
+This project follows **Clean Architecture** and is divided into three main layers:
 
-1️⃣ **Data Layer** – จัดการ API และข้อมูล เช่น Repository, Models
-2️⃣ **Domain Layer** – Business Logic และ Use Cases
-3️⃣ **Presentation Layer** – UI และ State Management
-
-### 📌 State Management
-- ใช้ `flutter_bloc (Cubit)` สำหรับการจัดการ State
-- ใช้ `Get_it` ในการ Inject Dependencies
-- ใช้ `Dio` สำหรับ API Handling
+1️⃣ **Data Layer** – Handles API requests, local database operations, and data modeling.  
+2️⃣ **Domain Layer** – Contains business logic and use cases.  
+3️⃣ **Presentation Layer** – Manages UI and state using Bloc (Cubit).  
 
 ---
 
 ## 🛠 **Installation & Setup**
 
-### 📌 ติดตั้ง Dependencies
+### 📌 Install Dependencies
 ```bash
 fvm flutter pub get
 ```
 
-### 📌 รันแอปตาม Environment
+### 📌 Run App Based on Environment
 ```bash
 fvm flutter run --flavor mock -t lib/main_mock.dart
 fvm flutter run --flavor sit -t lib/main_sit.dart
 fvm flutter run --flavor prod -t lib/main_prod.dart
 ```
 
-### 📌 Deploy ด้วย Fastlane
+### 📌 Deploy Using Fastlane
 ```bash
-sh deploy-prod.sh  # สำหรับ Production
-sh deploy-sit.sh   # สำหรับ SIT
+sh deploy-prod.sh  # For Production
+sh deploy-sit.sh   # For SIT
 ```
 
 ---
 
 ## ⚙️ **CI/CD & Deployment**
 
-- **Android**: ใช้ **Firebase App Distribution** สำหรับ Testing
-- **iOS**: ใช้ **TestFlight** สำหรับ Testing
-- **Fastlane**: ใช้ Automate การ Deploy
+- **Android**: Uses **Firebase App Distribution** for testing.
+- **iOS**: Uses **TestFlight** for internal testing.
+- **Fastlane**: Automates the deployment process.
 
 ---
-
-
